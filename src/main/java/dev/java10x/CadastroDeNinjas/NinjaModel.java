@@ -7,11 +7,11 @@ import jakarta.persistence.*;
 public class NinjaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    Long uuid;
-    String nome;
-    String email;
-    String idade;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    private String email;
+    private String idade;
 
     public NinjaModel() {
     }
