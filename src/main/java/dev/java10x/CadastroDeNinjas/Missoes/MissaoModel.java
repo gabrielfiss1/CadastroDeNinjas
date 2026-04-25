@@ -3,12 +3,18 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 import dev.java10x.CadastroDeNinjas.Missoes.domain.DificuldadeMissao;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 
 @Entity
 @Table(name = "tb_missoes")
+@Data // cria getters e setters
+@NoArgsConstructor
+@AllArgsConstructor
 public class MissaoModel {
 
     @Id
@@ -24,35 +30,4 @@ public class MissaoModel {
 
     // TODO: private NinjaModel anunciadaPeloNinja;
     // TODO: private int recompensa;
-
-    public MissaoModel(Long id, String nomeMissao, DificuldadeMissao dificuldade, NinjaModel ninjas) {
-        this.id = id;
-        this.nome = nomeMissao;
-        this.dificuldade = dificuldade;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public DificuldadeMissao getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(DificuldadeMissao dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
 }
