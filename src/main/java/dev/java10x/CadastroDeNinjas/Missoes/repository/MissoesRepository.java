@@ -1,4 +1,4 @@
-package dev.java10x.CadastroDeNinjas.Missoes.Repository;
+package dev.java10x.CadastroDeNinjas.Missoes.repository;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
