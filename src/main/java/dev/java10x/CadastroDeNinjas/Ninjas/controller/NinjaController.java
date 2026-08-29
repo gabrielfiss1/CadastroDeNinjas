@@ -1,10 +1,19 @@
 package dev.java10x.CadastroDeNinjas.Ninjas.controller;
 
+import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
+import dev.java10x.CadastroDeNinjas.Ninjas.service.NinjaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
+
+    @Autowired
+    private NinjaService ninjaService;
 
     @GetMapping("/")
     public String boasVindas(){
@@ -16,17 +25,17 @@ public class NinjaController {
         return "Ninja cadastrado";
     }
 
-    @GetMapping("/todos")
-    public String mostrarTodosNinjas(){
-        return "Mostrar todos ninja";
+    @GetMapping("/listar")
+    public List<NinjaModel> mostrarTodosNinjas(){
+        return ninjaService.mostrarTodosNinjas();
     }
 
-    @GetMapping("/todos/id")
-    public String mostrarTodosNinjasPorId(){
-        return "Mostrar ninja por id";
+    @GetMapping("/listar/{id}")
+    public Optional<NinjaModel> mostrarTodosNinjasPorId(@PathVariable Long id){
+        return ninjaService.mostrarNinjaPorId(id);
     }
 
-    @PutMapping("/alterar/id")
+    @PutMapping("/alterar")
     public String alterarNinjaPorId(){
         return "Alterou ninja";
     }
