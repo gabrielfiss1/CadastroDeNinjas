@@ -25,12 +25,12 @@ public class NinjaController {
         return "Ninja cadastrado";
     }
 
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public List<NinjaModel> mostrarTodosNinjas(){
         return ninjaService.mostrarTodosNinjas();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/listar/{id}")
     public Optional<NinjaModel> mostrarTodosNinjasPorId(@PathVariable Long id){
         return ninjaService.mostrarNinjaPorId(id);
     }
