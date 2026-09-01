@@ -23,4 +23,7 @@ public class NinjaService {
         return repository.findById(id);
     }
 
+    public NinjaModel adicionarNinja(NinjaModel ninja){
+        return repository.save(ninja);
+    }
 }
