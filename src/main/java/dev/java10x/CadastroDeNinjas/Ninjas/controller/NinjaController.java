@@ -42,8 +42,10 @@ public class NinjaController {
 
     // TODO: deletar ninja
 
-    @DeleteMapping("/deletar")
-    public String deletarNinjaPorId(){ return "Deletou ninja"; }
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable Long id){
+        ninjaService.deletarNinja(id);
+    }
 
  // TODO:    @GetMapping("/ID DO NINJA/missoes") listar todas missoes dele
  // TODO:    @GetMapping("/ID DO NINJA/missoes/codigo da missao ") listar uma missao
