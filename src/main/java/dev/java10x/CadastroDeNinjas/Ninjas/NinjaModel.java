@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity // entidade no banco de dados
 @Table(name = "tb_cadastro")
 @Data
@@ -30,4 +29,7 @@ public class NinjaModel {
     @ManyToOne // um ninja tem uma unica missao
     @JoinColumn(name = "missoes_id") // FK
     private MissaoModel missoes;
+
+    @Column(name = "rank")
+    private String rank;
 }

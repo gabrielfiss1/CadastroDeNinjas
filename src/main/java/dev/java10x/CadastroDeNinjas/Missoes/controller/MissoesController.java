@@ -1,19 +1,27 @@
 package dev.java10x.CadastroDeNinjas.Missoes.controller;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
+import dev.java10x.CadastroDeNinjas.Missoes.service.MissaoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("missoes") // mapear api
 public class MissoesController {
 
+    @Autowired
+    private MissaoService service;
+
     @GetMapping("/listar")
-    public String todasMissoes(){
-        return "todas missoes listadas";
+    public List<MissaoModel> todasMissoes(){
+        return service.listarTodasMissoes();
     }
 
     @PostMapping("/criar")
-    public String criarMissao(){
-        return "criou missao";
+    public MissaoModel criarMissao(@RequestBody MissaoModel missao) {
+        return service.criarMissao(missao);
     }
 
     @PutMapping("/alterar")
