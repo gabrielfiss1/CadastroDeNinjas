@@ -1,6 +1,8 @@
 package dev.java10x.CadastroDeNinjas.Ninjas.service;
 
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
+import dev.java10x.CadastroDeNinjas.Ninjas.dto.NinjaDTO;
+import dev.java10x.CadastroDeNinjas.Ninjas.mapper.NinjaMapper;
 import dev.java10x.CadastroDeNinjas.Ninjas.repository.NinjaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ public class NinjaService {
 
     @Autowired
     private NinjaRepository repository;
+    @Autowired
+    private NinjaMapper mapper;
 
     // listar todos ninjas
     public List<NinjaModel> mostrarTodosNinjas(){
@@ -23,8 +27,10 @@ public class NinjaService {
         return repository.findById(id);
     }
 
-    public NinjaModel adicionarNinja(NinjaModel ninja){
-        return repository.save(ninja);
+    public NinjaDTO adicionarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninja = mapper.map(ninjaDTO);
+        ninja = repository.save(ninja);
+        return mapper.map(ninja);
     }
 
     public void deletarNinja(Long id){
