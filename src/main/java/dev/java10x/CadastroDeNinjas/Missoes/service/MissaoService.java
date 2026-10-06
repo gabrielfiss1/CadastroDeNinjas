@@ -17,4 +17,8 @@ public class MissaoService {
         return repository.findAll();
     }
 
+    public MissaoModel criarMissao(MissaoModel missao){
+        return repository.save(missao);
+    }
+
 }
