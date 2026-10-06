@@ -1,6 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import dev.java10x.CadastroDeNinjas.Missoes.domain.DificuldadeMissao;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
@@ -29,7 +29,7 @@ public class MissaoModel {
     private DificuldadeMissao dificuldade;
 
     @OneToMany(mappedBy = "missoes") // uma missao tem varios ninjas
-    @JsonIgnore
+    @JsonManagedReference
     private List<NinjaModel> ninjas;
 
     // TODO: private NinjaModel anunciadaPeloNinja;
