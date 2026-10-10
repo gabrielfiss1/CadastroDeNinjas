@@ -13,7 +13,11 @@ import java.util.List;
 public class MissoesController {
 
     @Autowired
-    private MissaoService service;
+    private final MissaoService service;
+
+    public MissoesController(MissaoService service) {
+        this.service = service;
+    }
 
     @GetMapping("/listar")
     public List<MissaoModel> todasMissoes(){

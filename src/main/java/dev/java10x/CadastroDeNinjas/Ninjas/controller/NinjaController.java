@@ -14,7 +14,11 @@ import java.util.List;
 public class NinjaController {
 
     @Autowired
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @PostMapping("/adicionar")
     public ResponseEntity<String> criarNinja(@RequestBody NinjaDTO ninja){
